@@ -27,6 +27,8 @@ struct node{
 typedef struct node NODE;
 
 // function declarations
+NODE *leftrotate(NODE *);
+NODE *rightrotate(NODE *);
 NODE *insert(NODE *,int );
 NODE *newNode(int);
 NODE *inorder(NODE*);
@@ -64,15 +66,70 @@ NODE *insert(NODE *root, int key){
 	    return root;
     }
    
-    node->height = 1 + max(height(node->left), height(node, right));
+    root->height = 1 + max(height(root->left), height(root->right));
     
-    int balance = get_bal(node);
+    int balance = get_bal(root);
     // there are four cases if this node is unbalanced.
+  
+
+    //left left case
+    if(balance > 1 && key < root->left->key)
+    	return rightrotate(root);
+    // right right case
+    if(balance < -1 && key > root->right->key)
+    	return leftrotate(root);
+    //left right case
+    if(balance > 1 && key > root->left->key){
+    	root->left = leftrotate(root->left);
+    	return rightrotate(root);
+    }
+    // right left case
+    if(balance < -1 && key < root->right->key){
+    	root->right = rightrotate(root->right);
+    	return leftrotate(root);
+    }
+    
+
+
 
 
 	return root;
 }
 
+NODE *leftrotate(NODE *x){
+
+	NODE *y = x->right;
+	NODE *T2 = y->left;
+
+    // perform rotation
+	y->left = x;
+	x->right = T2;
+
+    // update heights
+	x->height = max(height(x->left), height(x->right)) + 1;
+	y->height = max(height(y->left), height(y->right))+ 1;
+
+    // return new root;
+	return y;
+
+}
+
+NODE *rightrotate(NODE *y){
+
+	NODE *x = y->left;
+	NODE *T2 = x->right;
+
+    // perform rotation
+	x->right = y;
+	y->left = T2;
+
+    // update heights
+	y->height = max(height(y->left), height(y->right)) + 1;
+	x->height = max(height(x->left), height(x->right)) + 1;
+
+    // return new root
+	return x;
+}
 
 // helper utility that returns new node with key = key and height initially one.
 NODE *newNode(int key){
