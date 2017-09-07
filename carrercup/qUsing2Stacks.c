@@ -56,10 +56,10 @@ int main(){
 	return 0;
 }
 
-
+// utility to display the elements in second stack
 void display(int *stack, int *top){
 
-    printf("IN display top: %d\n", *top);
+    //printf("IN display top: %d\n", *top);
 	int i;
 	for(i=0; i<*top-1 ;i++){
 		printf("%d\t", stack[i]);
@@ -67,6 +67,7 @@ void display(int *stack, int *top){
 	printf("\n\n");
 }
 
+// utility to pop from first stack and puching to second stack
 void pop_and_push(int *stk1, int stk1_top, int *stk2, int* stk2_top){
 	int data;
 	while(stk1_top 	> 0){
@@ -79,6 +80,7 @@ void pop_and_push(int *stk1, int stk1_top, int *stk2, int* stk2_top){
 
 }
 
+//utiity to push into stack and return the top
 int push(int *stck, int data, int top){
 
 	stck[top] = data;
@@ -87,6 +89,7 @@ int push(int *stck, int data, int top){
 	
 }
 
+// utility to pop and return data
 int pop(int *stck, int* stck_top){
 
 	int data = stck[*stck_top -1];

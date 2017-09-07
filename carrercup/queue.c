@@ -8,7 +8,8 @@
 // ~~~~~
 // size : 50
 // FIFO
-// 
+// rear : rear end
+// front: front end 
 
 
 #include <stdio.h>
