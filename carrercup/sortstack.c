@@ -1,5 +1,15 @@
 // Sort a stack using another stack with no recursion.
-                                                                // req fns swap, 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 
+//  sort a stack using a intermediate variable and another stack.
+//  STACK
+//  ~~~~~
+//  size : 50
+//  FIFO 
+//  ops: pop and push
+//
+///////////////////////////////////////////////////////////////////////////
+
 
 #include <stdio.h>
 #include <string.h>
@@ -28,7 +38,7 @@ int main(){
 	len = sizeof(arr)/sizeof(arr[0]);
 
 	for(i=0; i<len; i++)
-		push(stack1, arr[i], &stack1_top);
+		push(stack1, arr[i], &stack1_top); // populating the first stack
 
 	printstack(stack1, stack1_top, "stack1");
 	printf("\n");
@@ -40,6 +50,7 @@ int main(){
 }
 
 
+// utility that sorts the stack to another stack
 int *sort(int *stack1, int stack1_top, int *stack2, int stack2_top){
 
     //initial
@@ -94,10 +105,8 @@ int *sort(int *stack1, int stack1_top, int *stack2, int stack2_top){
 
 }
 
-void swap(int *a, int *b){
-;
-}
 
+// A utility that pops an element from a stack and push the popped element to another stack
 void pop_and_push(int *stack2, int *stack2_top, int *stack1, int *stack1_top){
 
 	int data = pop(stack2, stack2_top);
@@ -105,6 +114,7 @@ void pop_and_push(int *stack2, int *stack2_top, int *stack1, int *stack1_top){
 	
 }
 
+// The stack push operation
 void push(int *stack, int data, int *top){
 
 	stack[*top] = data;
@@ -112,6 +122,7 @@ void push(int *stack, int data, int *top){
 	*top = *top +1;	
 }
 
+// A utility used to print stack elements
 void printstack(int *stack, int top, char *stack_name){
     printf("%s\t:",stack_name);
 	int i;
@@ -120,6 +131,8 @@ void printstack(int *stack, int top, char *stack_name){
 
 	printf("\n");
 }
+
+// The stack pop operation
 
 int pop(int *stack, int *top){
 

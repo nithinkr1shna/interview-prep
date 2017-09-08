@@ -94,7 +94,7 @@ int pop(int *stck, int* stck_top){
 
 	int data = stck[*stck_top -1];
 	printf("Popped %d\n", data);
-	*stck_top--;
+	*stck_top = *stck_top -1;
 	printf("pop stack top:%d\n", *stck_top );
 
 	
