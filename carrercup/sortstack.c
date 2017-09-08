@@ -132,8 +132,8 @@ void printstack(int *stack, int top, char *stack_name){
 	printf("\n");
 }
 
-// The stack pop operation
 
+// The stack pop operation
 int pop(int *stack, int *top){
 
 	int data = stack[*top-1];
