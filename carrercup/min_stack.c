@@ -54,6 +54,9 @@ int main(){
 		}
 		
 	}
+
+	//  sample driver
+
 	printstack(stack);
 
 	printf("%d\n",pop2(&stack, &min_stack));
@@ -65,7 +68,7 @@ int main(){
 	printf("min: %d\n",get_stack_min(min_stack) );
 	printstack(stack);
 
-
+    //  end of driver 
 	
 	return 0;
 }
@@ -80,15 +83,18 @@ void printstack(stack_t stack){
 
 }
 
+// utility fucntion to get min of two values
 int get_minimum(int a, int b){
 
 	return (a > b)? a: b;
 }
 
 
+// return the top of min_stack => min 
 int get_stack_min(stack_t stack){
-	return stack.st[stack.top-1];
+	return stack.st[stack.top-1]; // returns peek value, no pop is done here
 }
+
 // push an item into the stack 
 void push(stack_t *stack, int item){
 
