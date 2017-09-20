@@ -1,0 +1,5 @@
+
+
+public     : Anyone is granted.
+protected  : Only derived classes are granted.
+private    : No one but friends are granted.
