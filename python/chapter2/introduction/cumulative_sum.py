@@ -13,4 +13,9 @@ def sum(list):
 
 	return sum
 
+def sum_str(list):
+	#str=""
+	str = each.join(list)
+	return str
+
 print cumulative_sum([1,2,3,4])
