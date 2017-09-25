@@ -2,8 +2,10 @@
 
 def cumulative_sum(list):
 	cum_list = []
+	counter = 0
 	for each in list:
-		cum_list.append(each+sum(cum_list))
+		cum_list.append(each+sum(list[0:counter]))
+		counter = counter + 1
 	return cum_list
 
 def sum(list):
