@@ -8,5 +8,5 @@ def my_enumerate(list):
 
 print my_enumerate([1,2,3])
 
-for index, value in enumerate(["a", "b", "c"]):
+for index, value in my_enumerate(["a", "b", "c"]):
 	print index, value
